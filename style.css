@@ -522,3 +522,53 @@ h2 { font-size: clamp(42px, 6vw, 76px); }
 .contact-logo{width:280px;max-width:100%;margin-top:30px;border-radius:28px;box-shadow:0 25px 80px rgba(40,120,255,.24)}
 .reveal{filter:blur(8px);transform:translateY(34px) scale(.98)}.reveal.visible{filter:blur(0);transform:translateY(0) scale(1)}
 @media(max-width:640px){.brand-logo{height:36px}.logo-hologram{width:230px;left:0;top:0}.loader-logo{width:190px}}
+
+.telegram-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #229ED9, #1C8ADB);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 30px rgba(34,158,217,.4);
+  transition: all .3s ease;
+}
+
+.telegram-contact:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+.instagram-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 85px;
+
+  z-index: 9999;
+
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #833ab4,
+    #fd1d1d,
+    #fcb045
+  );
+
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 30px rgba(253, 29, 29, .35);
+  transition: all .3s ease;
+}
+
+.instagram-contact:hover {
+  transform: translateY(-3px) scale(1.05);
+}
