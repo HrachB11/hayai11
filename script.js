@@ -118,6 +118,46 @@ const translations = {
   }
 };
 
+Object.assign(translations.en, {
+  telegramBtn: "Message on Telegram",
+  aiToolsTitle: "AI tools we will work with",
+  chatgptDesc: "Fast thinking, texts, ideas and a daily work assistant",
+  claudeDesc: "Deep analysis, documents, studying and business thinking",
+  geminiDesc: "Google AI for research, presentations and productivity",
+  formSuccess: "Your request has been sent. We will contact you soon."
+});
+Object.assign(translations.ru, {
+  telegramBtn: "Написать в Telegram",
+  aiToolsTitle: "AI-инструменты, с которыми будем работать",
+  chatgptDesc: "Быстрое мышление, тексты, идеи и рабочий помощник",
+  claudeDesc: "Глубокий анализ, документы, учёба и бизнес-мышление",
+  geminiDesc: "Google AI для исследований, презентаций и продуктивности",
+  formSuccess: "Заявка отправлена. Мы скоро свяжемся с вами."
+});
+Object.assign(translations.hy, {
+  telegramBtn: "Գրել Telegram-ում",
+  aiToolsTitle: "AI գործիքներ, որոնց հետ աշխատելու ենք",
+  chatgptDesc: "Արագ մտածողություն, տեքստեր, գաղափարներ և աշխատանքային օգնական",
+  claudeDesc: "Խորը վերլուծություն, փաստաթղթեր, ուսում և բիզնես մտածողություն",
+  geminiDesc: "Google AI՝ հետազոտության, պրեզենտացիաների և արտադրողականության համար",
+  formSuccess: "Հայտն ուղարկված է։ Մենք շուտով կկապվենք ձեզ հետ։"
+});
+
+let currentLang = "hy";
+function setLanguage(lang) {
+  currentLang = lang;
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  document.querySelector('input[name="name"]')?.setAttribute("placeholder", lang === "hy" ? "Ձեր անունը" : lang === "ru" ? "Ваше имя" : "Your name");
+  document.querySelector('textarea[name="message"]')?.setAttribute("placeholder", lang === "hy" ? "Գրեք՝ ինչի եք ուզում հասնել" : lang === "ru" ? "Расскажите, чего хотите достичь" : "Tell us what you want to achieve");
+}
+
+document.addEventListener("DOMContentLoaded", () => setLanguage("hy"));
+
 window.addEventListener("load", () => {
   setTimeout(() => document.getElementById("loader").classList.add("hidden"), 650);
 });
@@ -214,17 +254,7 @@ document.getElementById("prevTestimonial").addEventListener("click", () => {
 });
 
 document.querySelectorAll("[data-lang]").forEach(button => {
-  button.addEventListener("click", () => {
-    const lang = button.dataset.lang;
-    document.querySelectorAll("[data-lang]").forEach(b => b.classList.remove("active"));
-    button.classList.add("active");
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.dataset.i18n;
-      if (translations[lang][key]) el.textContent = translations[lang][key];
-    });
-  });
+  button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
 
 document.getElementById("leadForm").addEventListener("submit", async e => {
@@ -257,7 +287,7 @@ document.getElementById("leadForm").addEventListener("submit", async e => {
     })
   });
 
-  document.getElementById("formNote").textContent = "Заявка отправлена. Мы скоро свяжемся с вами.";
+  document.getElementById("formNote").textContent = translations[currentLang]?.formSuccess || "Հայտն ուղարկված է։ Մենք շուտով կկապվենք ձեզ հետ։";
   form.reset();
 });
 
