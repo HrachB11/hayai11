@@ -1,145 +1,339 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HayAi Academy — AI կրթություն Հայաստանում</title>
-  <meta name="description" content="HayAi Academy — պրակտիկ AI դասընթացներ ուսանողների, մասնագետների, ֆրիլանսերների և բիզնեսների համար Հայաստանում։" />
+  <title>HayAi — Master Artificial Intelligence. Build Your Future.</title>
+  <meta name="description" content="HayAi is a premium AI Academy in Armenia teaching practical AI skills for IT, motion design, freelancing, business automation, and education." />
+  <meta name="keywords" content="AI Academy Armenia, AI courses, HayAi, artificial intelligence education, AI for business, AI freelancing" />
+  <meta name="theme-color" content="#050712" />
+
+  <meta property="og:title" content="HayAi — Master Artificial Intelligence" />
+  <meta property="og:description" content="Practical AI education for students, professionals, freelancers and businesses." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
+<a href="https://t.me/HayAi_Academy" class="telegram-contact" target="_blank">
+  💬 Написать в Telegram
+</a>
+<a href="https://www.instagram.com/hayai.group" class="instagram-contact" target="_blank">
+  📸 Instagram
+</a>
 <body>
-  <div class="noise"></div>
-  <div class="cursor-glow"></div>
+  <div class="loader" id="loader">
+    <img class="loader-logo" src="assets/hayai-logo.jpg" alt="HayAi logo">
+    <div class="loader-mark">Initializing AI Academy</div>
+    <div class="loader-line"><span></span></div>
+  </div>
 
-  <header class="nav">
-    <a href="#top" class="brand"><img src="assets/hayai-logo.jpg" alt="HayAi logo"><span>HayAi</span></a>
-    <nav>
-      <a href="#courses" data-i18n="navCourses">Դասընթացներ</a>
-      <a href="#why" data-i18n="navWhy">Ինչու մենք</a>
-      <a href="#program" data-i18n="navProgram">Ծրագիր</a>
-      <a href="#register" data-i18n="navRegister">Գրանցվել</a>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="particles"></canvas>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#hero" class="brand">
+        <img class="brand-logo" src="assets/hayai-logo.jpg" alt="HayAi logo">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#courses" data-i18n="navCourses">Courses</a>
+        <a href="#why" data-i18n="navWhy">Why HayAi</a>
+        <a href="#process" data-i18n="navProcess">How it works</a>
+        <a href="#stories" data-i18n="navStories">Stories</a>
+        <a href="#contact" class="nav-cta" data-i18n="navApply">Apply Now</a>
+        <div class="language-switcher">
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="ru">RU</button>
+          <button data-lang="hy">HY</button>
+        </div>
+      </div>
     </nav>
-    <div class="lang-switch" aria-label="Language switcher">
-      <button class="lang-btn active" data-lang="hy">Հայ</button>
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-    <a class="nav-cta" href="#register" data-i18n="navCta">Սկսել հիմա</a>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="orb orb-1"></div><div class="orb orb-2"></div>
-      <div class="hero-content reveal">
-        <div class="eyebrow" data-i18n="eyebrow">AI Academy Armenia • Premium Education</div>
-        <h1 data-i18n="heroTitle">Սովորիր արհեստական բանականություն ու կառուցիր քո ապագան</h1>
-        <p class="hero-text" data-i18n="heroText">HayAi-ն պրակտիկ AI ակադեմիա է՝ ուսանողների, մասնագետների, ֆրիլանսերների, ձեռներեցների և բիզնեսների համար։ Այստեղ սովորում ես ոչ թե տեսություն, այլ իրական գործիքներ, ավտոմատացումներ և եկամուտ ստեղծող հմտություններ։</p>
-        <div class="hero-actions">
-          <a class="btn primary magnetic" href="#register" data-i18n="heroPrimary">Գրանցվել անվճար խորհրդատվության</a>
-          <a class="btn ghost" href="#courses" data-i18n="heroGhost">Տեսնել ուղղությունները</a>
-        </div>
-        <div class="stats">
-          <div><b>5</b><span data-i18n="stat1">AI ուղղություն</span></div>
-          <div><b>0→Pro</b><span data-i18n="stat2">հարմար սկսնակների համար</span></div>
-          <div><b>Live</b><span data-i18n="stat3">Zoom դասեր և աջակցություն</span></div>
-        </div>
-      </div>
-      <div class="hero-card reveal delay">
-        <img src="assets/hayai-logo.jpg" alt="HayAi logo" class="hero-logo">
-        <div class="glass-card floating">
-          <span class="chip">Next cohort</span>
-          <h3 data-i18n="sprintTitle">AI Skills Sprint</h3>
-          <p data-i18n="sprintText">Prompt Engineering • ChatGPT • Automation • Freelance • Business AI</p>
-          <div class="progress"><span></span></div>
-        </div>
-        <div class="mini-card one" data-i18n="mini1">+ AI Portfolio</div>
-        <div class="mini-card two" data-i18n="mini2">+ Telegram Support</div>
-      </div>
-    </section>
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="pulse-dot"></span>
+            <span data-i18n="heroEyebrow">Armenia's next-generation AI academy</span>
+          </div>
+          <h1 data-i18n="heroTitle">Master Artificial Intelligence and Build the Future</h1>
+          <p data-i18n="heroText">Practical AI education for students, professionals, freelancers and businesses.</p>
+          <div class="hero-actions">
+            <a href="#courses" class="btn btn-primary" data-i18n="startLearning">Start Learning</a>
+            <a href="#contact" class="btn btn-secondary" data-i18n="bookConsultation">Book Free Consultation</a>
+          </div>
 
-    <section class="logos reveal">
-      <span data-i18n="logosText">Ոգեշնչված ժամանակակից tech ոճից</span><b>Apple</b><b>OpenAI</b><b>Stripe</b><b>Linear</b><b>Framer</b>
-    </section>
-
-    <section id="courses" class="section">
-      <div class="section-title reveal"><span>Courses</span><h2 data-i18n="coursesTitle">AI ուղղություններ, որոնք կարող են արագ տալ իրական արդյունք</h2></div>
-      <div class="course-grid">
-        <article class="course reveal"><i>⌘</i><h3>AI in IT</h3><p data-i18n="course1">Սովորիր օգտագործել AI գործիքներ կոդի, կայքերի, հավելվածների, debugging-ի և պրոդուկտ մտածողության համար։</p></article>
-        <article class="course reveal"><i>✦</i><h3>AI Motion Design</h3><p data-i18n="course2">Ստեղծիր վիդեոներ, ռիլսեր, գովազդային կոնտենտ, storyboard և visual concepts՝ AI workflow-ներով։</p></article>
-        <article class="course reveal"><i>₿</i><h3>AI Freelance Income</h3><p data-i18n="course3">Ինչպես AI-ով ստեղծել ծառայություններ, փաթեթավորել առաջարկը, գտնել հաճախորդներ և վաճառել։</p></article>
-        <article class="course reveal"><i>⚡</i><h3>Business Automation</h3><p data-i18n="course4">Ավտոմատացրու վաճառքը, CRM-ը, հաճախորդների պատասխանները, հաշվետվությունները և թիմի աշխատանքը։</p></article>
-        <article class="course reveal"><i>🎓</i><h3>AI for Study</h3><p data-i18n="course5">AI-ն ուսման մեջ՝ արագ հետազոտություն, կոնսպեկտներ, պրեզենտացիաներ, քննության պատրաստություն։</p></article>
-        <article class="course premium reveal"><i>◆</i><h3>Premium Mentorship</h3><p data-i18n="course6">Անհատական ուղղորդում, պրակտիկ առաջադրանքներ, պորտֆոլիո և արդյունքի վրա կենտրոնացած ծրագիր։</p></article>
-      </div>
-    </section>
-
-    <section id="why" class="section split">
-      <div class="reveal"><span class="tag">Why HayAi</span><h2 data-i18n="whyTitle">Սա սովորական դասընթաց չէ։ Սա AI մտածելակերպի արագացում է։</h2><p data-i18n="whyText">Մենք կառուցում ենք միջավայր, որտեղ մարդը սովորում է մտածել, ստեղծել և վաճառել AI-ի օգնությամբ։ Յուրաքանչյուր մոդուլ ունի գործնական արդյունք՝ պատրաստ prompt-եր, workflow-ներ, automation-ներ և իրական кейսեր։</p></div>
-      <div class="features reveal">
-        <div><b>01</b><h3 data-i18n="feat1Title">Պրակտիկ դասեր</h3><p data-i18n="feat1Text">Ամեն դասից հետո ունես պատրաստ կիրառելի գործիք։</p></div>
-        <div><b>02</b><h3 data-i18n="feat2Title">Հայերեն բացատրություն</h3><p data-i18n="feat2Text">Բարդ AI թեմաները պարզ, հասկանալի և կիրառելի ձևով։</p></div>
-        <div><b>03</b><h3 data-i18n="feat3Title">Վաճառքի մտածողություն</h3><p data-i18n="feat3Text">Սովորում ես ոչ միայն ստեղծել, այլ նաև փաթեթավորել ու վաճառել։</p></div>
-      </div>
-    </section>
-
-    <section id="program" class="section timeline">
-      <div class="section-title reveal"><span>Program</span><h2 data-i18n="programTitle">Ինչ է սովորում ուսանողը</h2></div>
-      <div class="steps">
-        <div class="step reveal"><b>1</b><h3 data-i18n="step1Title">AI հիմքեր</h3><p data-i18n="step1Text">Ինչպես ճիշտ աշխատել ChatGPT-ի, image/video AI-ի և automation գործիքների հետ։</p></div>
-        <div class="step reveal"><b>2</b><h3>Prompt Engineering</h3><p data-i18n="step2Text">Պրոֆեսիոնալ prompt-երի կառուցվածք, վաճառքի, ուսման և բիզնեսի համար։</p></div>
-        <div class="step reveal"><b>3</b><h3 data-i18n="step3Title">Real Projects</h3><p data-i18n="step3Text">Կայքի կոնտենտ, ռիլս, գովազդ, CRM սցենար, բոտի logic և mini-portfolio։</p></div>
-        <div class="step reveal"><b>4</b><h3 data-i18n="step4Title">Monetization</h3><p data-i18n="step4Text">Ինչ ծառայություն առաջարկել, ինչպես գին դնել, ինչպես գրել հաճախորդին և փակել վաճառքը։</p></div>
-      </div>
-    </section>
-
-
-    <section class="section details">
-      <div class="section-title reveal"><span>Premium Details</span><h2 data-i18n="detailsTitle">Փոքր դետալներ, որոնք HayAi-ին դարձնում են ուժեղ կրթական փորձ</h2></div>
-      <div class="detail-grid">
-        <div class="detail-card reveal"><span>01</span><h3 data-i18n="detail1Title">Անձնական Roadmap</h3><p data-i18n="detail1Text">Սկզբում հասկանում ենք քո նպատակը՝ ուսում, աշխատանք, freelance կամ բիզնես, հետո տալիս ենք հստակ քայլերի քարտեզ։</p></div>
-        <div class="detail-card reveal"><span>02</span><h3 data-i18n="detail2Title">Պատրաստ Template-ներ</h3><p data-i18n="detail2Text">Ստանում ես prompt pack-եր, վաճառքի նամակներ, content framework-ներ և AI workflow-ներ, որոնք կարող ես միանգամից կիրառել։</p></div>
-        <div class="detail-card reveal"><span>03</span><h3 data-i18n="detail3Title">Portfolio արդյունք</h3><p data-i18n="detail3Text">Դասընթացի ընթացքում հավաքում ես փոքր, բայց գեղեցիկ portfolio՝ կայքի տեքստ, գովազդ, ռիլս, bot logic և automation օրինակներ։</p></div>
-      </div>
-    </section>
-
-    <section class="section testimonials">
-      <div class="section-title reveal"><span>Reviews</span><h2 data-i18n="reviewsTitle">Ինչ են ասում ուսանողները HayAi-ի մասին</h2></div>
-      <div class="review-grid">
-        <article class="review reveal"><div class="stars">★★★★★</div><p data-i18n="review1Text">«Առաջին անգամ AI-ն հասկացա պարզ լեզվով։ Ամենակարևորը՝ դասից հետո արդեն գիտեի ինչ անել և ինչպես կիրառել գործիքները իմ աշխատանքի մեջ»։</p><div class="person"><b data-i18n="review1Name">Անի Մ.</b><span data-i18n="review1Role">Ուսանող • AI for Study</span></div></article>
-        <article class="review reveal"><div class="stars">★★★★★</div><p data-i18n="review2Text">«Շատ պրակտիկ էր։ Prompt-երը, վաճառքի գաղափարները և freelance փաթեթավորումը ինձ օգնեցին հասկանալ՝ ինչպես AI-ից իրական ծառայություն սարքել»։</p><div class="person"><b data-i18n="review2Name">Դավիթ Ս.</b><span data-i18n="review2Role">Ֆրիլանսեր • AI Freelance Income</span></div></article>
-        <article class="review reveal"><div class="stars">★★★★★</div><p data-i18n="review3Text">«Բիզնես ավտոմատացման բաժինը շատ օգտակար էր։ Հասկացանք՝ ինչպես արագացնել հաճախորդների պատասխանները և թիմի աշխատանքը»։</p><div class="person"><b data-i18n="review3Name">Մարիամ Հ.</b><span data-i18n="review3Role">Փոքր բիզնես • Automation</span></div></article>
-      </div>
-    </section>
-    <section id="register" class="section register">
-      <div class="register-card reveal">
-        <div>
-          <span class="tag">Registration</span>
-          <h2 data-i18n="regTitle">Գրանցվիր անվճար խորհրդատվության</h2>
-          <p data-i18n="regText">Լրացրու տվյալները, և հայտը կարող է ուղարկվել Telegram՝ HayAi թիմին։</p>
-          <div class="socials">
-            <a href="https://t.me/HayAi_Academy" target="_blank" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M9.8 15.7 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.8 6 4.4c1.1.6 1.9.3 2.2-1l4-18.4c.4-1.6-.6-2.2-1.7-1.8L1.6 8.4C.1 9 .1 9.9 1.3 10.3l5.7 1.8L20.3 3.8c.6-.4 1.2-.2.7.2L9.8 15.7Z"/></svg>Telegram</a>
-            <a href="https://www.instagram.com/hayai.group/?utm_source=ig_web_button_share_sheet" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 12 14.2 2.2 2.2 0 0 0 12 9.8ZM17.2 6.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>Instagram</a>
+          <div class="trust-row">
+            <div><strong class="counter" data-target="1200">0</strong><span data-i18n="statStudents">students goal</span></div>
+            <div><strong class="counter" data-target="5">0</strong><span data-i18n="statTracks">career tracks</span></div>
+            <div><strong class="counter" data-target="94">0</strong><span data-i18n="statPractical">% practical tasks</span></div>
           </div>
         </div>
-        <form id="leadForm" class="form">
-          <input name="name" data-i18n-placeholder="phName" placeholder="Անուն Ազգանուն" required>
-          <input name="phone" data-i18n-placeholder="phPhone" placeholder="Հեռախոսահամար" required>
-          <select name="course" required>
-            <option value="" data-i18n="selectCourse">Ընտրիր ուղղությունը</option>
-            <option>AI in IT</option><option>AI Motion Design</option><option>AI Freelance Income</option><option>Business Automation</option><option>AI for Study</option>
-          </select>
-          <textarea name="message" data-i18n-placeholder="phMessage" placeholder="Գրիր՝ ինչ նպատակ ունես"></textarea>
-          <button class="btn primary" type="submit" data-i18n="submitBtn">Ուղարկել հայտը</button>
-      
+
+        <div class="hero-visual reveal" id="heroVisual">
+          <div class="logo-hologram parallax" data-depth="0.16"><img src="assets/hayai-logo.jpg" alt="HayAi logo"></div>
+          <div class="ai-orb">
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-core">AI</div>
+            <div class="floating-chip chip-one">Automation</div>
+            <div class="floating-chip chip-two">Prompting</div>
+            <div class="floating-chip chip-three">Design</div>
+          </div>
+          <div class="dashboard-card glass">
+            <div class="dash-top">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="dash-line wide"></div>
+            <div class="dash-line"></div>
+            <div class="dash-grid">
+              <div></div><div></div><div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos section-sm">
+      <div class="container">
+        <p data-i18n="trustedBy">Built around tools used by modern teams</p>
+        <div class="logo-strip">
+          <span>ChatGPT</span><span>Midjourney</span><span>Runway</span><span>Notion AI</span><span>Zapier</span><span>Claude</span>
+        </div>
+      </div>
+    </section>
+    <section class="ticker-section">
+      <div class="ticker-track">
+        <span>AI in IT</span><span>Motion Design</span><span>Freelancing</span><span>Business Automation</span><span>Education</span><span>Prompt Engineering</span><span>AI Agents</span><span>Portfolio Projects</span>
+        <span>AI in IT</span><span>Motion Design</span><span>Freelancing</span><span>Business Automation</span><span>Education</span><span>Prompt Engineering</span><span>AI Agents</span><span>Portfolio Projects</span>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="coursesKicker">Programs</span>
+          <h2 data-i18n="coursesTitle">Choose the AI path that upgrades your future</h2>
+          <p data-i18n="coursesText">Premium course tracks designed around real outcomes, real tools and real market demand.</p>
+        </div>
+
+        <div class="course-grid">
+          <article class="course-card reveal">
+            <div class="icon">⌘</div>
+            <h3>AI in IT</h3>
+            <p data-i18n="courseIt">Build faster, debug smarter and use AI as a coding partner.</p>
+            <span>Python · Web · Agents</span>
+          </article>
+          <article class="course-card reveal">
+            <div class="icon">✦</div>
+            <h3>AI in Motion Design</h3>
+            <p data-i18n="courseMotion">Create cinematic visuals, ads, reels and motion concepts with AI.</p>
+            <span>Runway · Sora · After Effects</span>
+          </article>
+          <article class="course-card reveal">
+            <div class="icon">◈</div>
+            <h3>AI for Freelancing</h3>
+            <p data-i18n="courseFreelance">Package AI skills into services clients are ready to pay for.</p>
+            <span>Offers · Sales · Delivery</span>
+          </article>
+          <article class="course-card reveal">
+            <div class="icon">✺</div>
+            <h3>AI Business Automation</h3>
+            <p data-i18n="courseBusiness">Automate sales, support, documents and operations with AI workflows.</p>
+            <span>CRM · Zapier · Bots</span>
+          </article>
+          <article class="course-card reveal course-wide">
+            <div class="icon">◆</div>
+            <h3>AI for Education</h3>
+            <p data-i18n="courseEducation">Study faster, write better, research deeper and prepare smarter.</p>
+            <span>Learning · Research · Productivity</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="whyKicker">Why HayAi</span>
+          <h2 data-i18n="whyTitle">Not theory. A premium skill-building system.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature reveal"><b>01</b><h3 data-i18n="practical">Practical Learning</h3><p data-i18n="practicalText">Every module ends with a real task you can show.</p></div>
+          <div class="feature reveal"><b>02</b><h3 data-i18n="projects">Real Projects</h3><p data-i18n="projectsText">Build portfolio assets, automations, content and workflows.</p></div>
+          <div class="feature reveal"><b>03</b><h3 data-i18n="tools">Industry Tools</h3><p data-i18n="toolsText">Learn the AI stack used by modern creators and companies.</p></div>
+          <div class="feature reveal"><b>04</b><h3 data-i18n="career">Career Support</h3><p data-i18n="careerText">Get direction on services, jobs, clients and positioning.</p></div>
+          <div class="feature reveal"><b>05</b><h3 data-i18n="mentors">Expert Mentors</h3><p data-i18n="mentorsText">Guidance from people who understand sales, tech and execution.</p></div>
+          <div class="feature reveal"><b>06</b><h3 data-i18n="cert">Certification</h3><p data-i18n="certText">Graduate with a certificate and a practical project portfolio.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="processKicker">How it works</span>
+          <h2 data-i18n="processTitle">From curiosity to market-ready AI skills</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="step reveal"><span>1</span><h3 data-i18n="step1">Free consultation</h3><p data-i18n="step1Text">We understand your goals and recommend the right track.</p></div>
+          <div class="step reveal"><span>2</span><h3 data-i18n="step2">Skill foundation</h3><p data-i18n="step2Text">Learn AI tools, prompting, workflows and practical thinking.</p></div>
+          <div class="step reveal"><span>3</span><h3 data-i18n="step3">Real projects</h3><p data-i18n="step3Text">Create results: websites, videos, automations, content or study systems.</p></div>
+          <div class="step reveal"><span>4</span><h3 data-i18n="step4">Launch your future</h3><p data-i18n="step4Text">Use your skills for career, freelance, business or education.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stories" id="stories">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="storiesKicker">Student success</span>
+          <h2 data-i18n="storiesTitle">Realistic outcomes from practical AI training</h2>
+        </div>
+
+        <div class="testimonial-slider reveal">
+          <button class="slider-btn" id="prevTestimonial">‹</button>
+          <div class="testimonial-card glass" id="testimonialCard">
+            <div class="person">
+              <img id="testimonialImg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" alt="Student photo">
+              <div>
+                <h3 id="testimonialName">Ani S.</h3>
+                <span id="testimonialRole">Marketing student</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p id="testimonialText">“HayAi helped me use AI for research, presentations and content. I became 3x faster with university tasks.”</p>
+            <strong id="testimonialResult">Result: built a personal AI study system</strong>
+          </div>
+          <button class="slider-btn" id="nextTestimonial">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section community">
+      <div class="container community-card reveal">
+        <div>
+          <span class="section-kicker" data-i18n="communityKicker">Community</span>
+          <h2 data-i18n="communityTitle">Join Armenia's new generation of AI builders</h2>
+          <p data-i18n="communityText">Learn with ambitious students, freelancers, creators and business owners. Share projects, find opportunities and grow faster together.</p>
+        </div>
+        <div class="community-stats">
+          <div><strong>24/7</strong><span>AI resources</span></div>
+          <div><strong>5</strong><span>tracks</span></div>
+          <div><strong>∞</strong><span>opportunities</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">FAQ</span>
+          <h2 data-i18n="faqTitle">Questions before you start?</h2>
+        </div>
+
+        <div class="accordion reveal">
+          <div class="faq-item active">
+            <button data-i18n="faq1">Do I need technical experience?</button>
+            <p data-i18n="faq1Text">No. Some tracks are beginner-friendly, while AI in IT is better if you want technical growth.</p>
+          </div>
+          <div class="faq-item">
+            <button data-i18n="faq2">Are lessons online or offline?</button>
+            <p data-i18n="faq2Text">HayAi can run online sessions, consultations and practical assignments depending on the group format.</p>
+          </div>
+          <div class="faq-item">
+            <button data-i18n="faq3">Will I build real projects?</button>
+            <p data-i18n="faq3Text">Yes. The main goal is to graduate with practical assets, not just theory.</p>
+          </div>
+          <div class="faq-item">
+            <button data-i18n="faq4">Can businesses join?</button>
+            <p data-i18n="faq4Text">Yes. AI Business Automation is designed for owners and teams that want workflows and productivity gains.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="section-kicker" data-i18n="contactKicker">Start now</span>
+          <h2 data-i18n="contactTitle">Book a free consultation and choose your AI path</h2>
+          <p data-i18n="contactText">Leave your details and HayAi will help you choose the best program based on your goals.</p>
+          <img class="contact-logo" src="assets/hayai-logo.jpg" alt="HayAi logo">
+        </div>
+
+        <form class="lead-form glass reveal" id="leadForm">
+          <label>
+            <span data-i18n="nameLabel">Full name</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            <span data-i18n="phoneLabel">Phone / WhatsApp</span>
+            <input type="tel" name="phone" placeholder="+374..." required />
+          </label>
+          <label>
+            <span data-i18n="courseLabel">Interested course</span>
+            <select name="course">
+              <option>AI in IT</option>
+              <option>AI in Motion Design</option>
+              <option>AI for Freelancing</option>
+              <option>AI Business Automation</option>
+              <option>AI for Education</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="messageLabel">Goal</span>
+            <textarea name="message" placeholder="Tell us what you want to achieve"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" data-i18n="sendRequest">Send Request</button>
+          <p class="form-note" id="formNote"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer><img src="assets/hayai-logo.jpg" alt="HayAi logo"><p>© 2026 HayAi Academy. Master Artificial Intelligence. Build Your Future.</p></footer>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#hero" class="brand"><img class="brand-logo" src="assets/hayai-logo.jpg" alt="HayAi logo"></a>
+        <p data-i18n="footerText">Master Artificial Intelligence. Build Your Future.</p>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="#courses">AI in IT</a>
+        <a href="#courses">AI Motion Design</a>
+        <a href="#courses">AI Business Automation</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#why">Why HayAi</a>
+        <a href="#stories">Stories</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Yerevan, Armenia</p>
+        <p>hello@hayai.am</p>
+      </div>
+    </div>
+    <div class="container copyright">© 2026 HayAi. All rights reserved.</div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
